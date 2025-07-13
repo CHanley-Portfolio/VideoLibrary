@@ -19,7 +19,9 @@ namespace VideoLibrary.Data
         public DbSet<Person> People { get; set; }
 
         // Lookups
+        public DbSet<LookupCountry> Countries { get; set; }
         public DbSet<LookupGenre> Genres { get; set; }
+        public DbSet<LookupLanguage> Languages { get; set; }
         public DbSet<LookupRating> Ratings { get; set; }
     }
 
