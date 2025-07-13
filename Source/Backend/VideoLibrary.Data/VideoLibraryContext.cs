@@ -12,8 +12,11 @@ namespace VideoLibrary.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public DbSet<Artwork> Artwork { get; set; }
+        public DbSet<Credit> Credits { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Person> People { get; set; }
 
         // Lookups
         public DbSet<LookupGenre> Genres { get; set; }

@@ -14,4 +14,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\VideoLibrary.Shared.Models\VideoLibrary.Shared.Models.csproj" />
+  </ItemGroup>
+
 </Project>

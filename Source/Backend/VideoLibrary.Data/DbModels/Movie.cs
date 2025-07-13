@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VideoLibrary.Shared.Models.Enums;
 
 namespace VideoLibrary.Data.DbModels
 {
@@ -12,7 +13,11 @@ namespace VideoLibrary.Data.DbModels
         public int RatingId { get; set; }
         public int Runtime { get; set; }
 
+        
+
         public virtual LookupRating? Rating { get; set; }
         public virtual ICollection<MovieGenre> MovieGenres { get; set; } = [];
+        public virtual ICollection<Artwork> Artwork { get; set; } = [];
+        public virtual ICollection<Credit> Credits { get; set; } = [];
     }
 }
