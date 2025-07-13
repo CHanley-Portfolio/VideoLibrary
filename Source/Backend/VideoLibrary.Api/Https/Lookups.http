@@ -1,0 +1,13 @@
+@Host = {{HostAddress}}
+ 
+GET {{Host}}/Genres
+Accept: application/json
+ 
+###
+
+GET {{Host}}/Ratings
+Accept: application/json
+ 
+###
+
+ 
