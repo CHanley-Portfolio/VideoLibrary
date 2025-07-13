@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using VideoLibrary.Data;
 using VideoLibrary.Service.Interfaces;
 using VideoLibrary.Service.Services;
@@ -14,6 +15,9 @@ builder.Services.AddDbContext<VideoLibraryContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VideoLibraryDB"), x => x.MigrationsAssembly("VideoLibrary.Data"));
 });
 
+// add logging services
+builder.Services.AddSerilog((services, LoggingConfiguration) => LoggingConfiguration.ReadFrom.Configuration(builder.Configuration));
+
 // Add services to the container.
 builder.Services.AddScoped<ILookupService, LookupService>();
 
@@ -26,6 +30,9 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
+
+app.UseSerilogRequestLogging();
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
