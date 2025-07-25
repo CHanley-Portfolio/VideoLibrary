@@ -20,6 +20,7 @@ builder.Services.AddSerilog((services, LoggingConfiguration) => LoggingConfigura
 
 // Add services to the container.
 builder.Services.AddScoped<ILookupService, LookupService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 builder.Services.AddControllers();
 

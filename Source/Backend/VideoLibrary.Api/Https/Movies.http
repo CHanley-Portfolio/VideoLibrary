@@ -1,0 +1,14 @@
+@Host = {{HostAddress}}/Movies
+
+POST {{Host}}
+Content-Type: application/json
+ 
+{
+ "title": "John Wick",
+ "description": "When a gangster's son steals his car and kills his dog, fearless ex-hit man John Wick takes on the entire mob to get his revenge.",
+ "year": 2014,
+ "ratingId": 5,
+ "runTime": 150,
+ "countryId": "US",
+ "languageId": "en"
+}
