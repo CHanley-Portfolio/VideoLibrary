@@ -1,5 +1,8 @@
+using FluentValidation;
 using VideoLibrary.Client.Pages;
 using VideoLibrary.Components;
+using VideoLibrary.Shared.Models.Movies;
+using VideoLibrary.Shared.Models.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,10 @@ builder.AddServiceDefaults();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Add Fluent Validation
+ValidatorOptions.Global.LanguageManager = new ValidationLanguageManager();
+builder.Services.AddValidatorsFromAssemblyContaining<EditMovieModel>();
 
 var app = builder.Build();
 

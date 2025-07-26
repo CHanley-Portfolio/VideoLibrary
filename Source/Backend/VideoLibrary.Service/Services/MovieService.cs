@@ -17,9 +17,9 @@ namespace VideoLibrary.Service.Services
                 movie.Slug = request.Title.Replace(" ", "-").ToLower();
                 movie.Tagline = request.Tagline;
                 movie.Description = request.Description;
-                movie.Year = request.Year;
-                movie.RatingId = request.RatingId;
-                movie.Runtime = request.Runtime;
+                movie.Year = request.Year!.Value;
+                movie.RatingId = request.RatingId!.Value;
+                movie.Runtime = request.Runtime!.Value;
                 movie.CountryId = request.CountryId;
                 movie.LanguageId = request.LanguageId;
 

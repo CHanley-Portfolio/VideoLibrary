@@ -1,0 +1,74 @@
+﻿@page "/editmovie/{MovieId:int?}"
+@rendermode InteractiveAuto
+
+<PageTitle>Add/Edit Movie</PageTitle>
+
+<h3>Add/Edit Movie</h3>
+
+@RendererInfo.Name
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmitAsync">
+    <FluentValidationValidator DisableAssemblyScanning="true"/>
+    <ValidationSummary></ValidationSummary>
+    <div class="row g-2 w-50">
+        <div class="col-12">
+            <label class="input-label" for="title">Title</label>
+            <InputText class="form-control" id="title" @bind-Value="@model.Title" />
+            <ValidationMessage For="() => model.Title" />
+        </div>
+        <div class="col-12">
+            <label class="input-label" for="description">Description</label>
+            <InputTextArea class="form-control" id="description" @bind-Value="@model.Description" />
+            <ValidationMessage For="() => model.Description" />
+        </div>
+        <div class="col-6">
+            <label class="input-label" for="year">Year</label>
+            <InputNumber class="form-control" id="year" @bind-Value="@model.Year" />
+            <ValidationMessage For="() => model.Year" />
+        </div>
+        <div class="col-6">
+            <label class="input-label" for="runtime">Runtime</label>
+            <div class="input-group">
+                <InputNumber class="form-control" id="runtime" @bind-Value="@model.Runtime" />
+                <span class="input-group-text">Minutes</span>
+            </div>
+            <ValidationMessage For="() => model.Runtime" />
+        </div>
+        <div class="col-12">
+            <label class="input-label" for="rating">Rating</label>
+            <InputSelect class="form-select" id="rating" @bind-Value="@model.RatingId">
+                <option value=""></option>
+            </InputSelect>
+            <ValidationMessage For="() => model.RatingId" />
+        </div>
+        <div class="col-12">
+            <label class="input-label" for="language">Language</label>
+            <InputSelect class="form-select" id="language" @bind-Value="@model.LanguageId">
+                <option value=""></option>
+            </InputSelect>
+            <ValidationMessage For="() => model.LanguageId" />
+        </div>
+        <div class="col-12">
+            <label class="input-label" for="country">Country</label>
+            <InputSelect class="form-select" id="country" @bind-Value="@model.CountryId">
+                <option value=""></option>
+            </InputSelect>
+            <ValidationMessage For="() => model.CountryId" />
+        </div>
+    </div>
+    <button class="mt-2 btn btn-primary">Press Me</button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int? MovieId { get; set; }
+
+    private EditMovieModel model = new();
+
+    private async Task OnValidSubmitAsync()
+    {
+
+    }
+
+}
