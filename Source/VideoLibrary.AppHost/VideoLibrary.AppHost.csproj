@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Backend\VideoLibrary.Api\VideoLibrary.Api.csproj" />
+    <ProjectReference Include="..\Frontend\VideoLibrary\VideoLibrary\VideoLibrary.csproj" />
   </ItemGroup>
 
 </Project>
